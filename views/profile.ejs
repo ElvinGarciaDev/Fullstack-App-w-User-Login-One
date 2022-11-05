@@ -54,24 +54,30 @@
         <div class="container d-flex flex-row">
 
           <% for(let i = 0; i < pizzaOrders.length; i++) {%>
-
-            <div class="card " >
-              <div class="card-body ">
-                <h5 class="card-title">Name: <%= pizzaOrders[i].Name %></h5>
-                <p class="card-text">Crust: <%= pizzaOrders[i].Crust %></p>
-                <p class="card-text">Size: <%= pizzaOrders[i].Size %></p>
-                <p class="card-text">Toppings: <%= pizzaOrders[i].Toppings %></p>
-                <span><i class="bi bi-trash"></i></span>
-                <span><i class="bi bi-check-circle"></i></span>
-
-                <% if (pizzaOrders[i].Complete === "true") { %>
-                  <p id="orderComplete"> Order Completed</p>
-                  <%} else { %>
-                  <p id="orderPending"> Order Pending </p>
-                  <% } %>
-
+            
+            <%if (user.local.email === pizzaOrders[i].Email) { %>
+              
+              <div class="card " >
+                <div class="card-body ">
+                  <h5 class="card-title">Name: <%= pizzaOrders[i].Name %></h5>
+                  <p class="card-text">Crust: <%= pizzaOrders[i].Crust %></p>
+                  <p class="card-text">Size: <%= pizzaOrders[i].Size %></p>
+                  <p class="card-text">Toppings: <%= pizzaOrders[i].Toppings %></p>
+                  <span><i class="bi bi-trash"></i></span>
+                  <span><i class="bi bi-check-circle"></i></span>
+  
+                  <% if (pizzaOrders[i].Complete === "true") { %>
+                    <p id="orderComplete"> Order Completed</p>
+                    <%} else { %>
+                    <p id="orderPending"> Order Pending </p>
+                    <% } %>
+  
+                </div>
               </div>
-            </div>
+
+              <% } %>
+
+            
         <% } %>
 
         </div>

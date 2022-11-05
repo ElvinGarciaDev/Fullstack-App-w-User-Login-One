@@ -1,6 +1,9 @@
 body{
   padding-top:80px;
   word-wrap:break-word;
+  /* background-image: url("./img/background.jpeg"); */
+  background-size: contain;
+  /* background-repeat: no-repeat; */
 
 }
 img{

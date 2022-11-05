@@ -15,6 +15,7 @@ module.exports = function(app, passport, db) {
           if (err) return console.log(err)
           res.render('profile.ejs', {
             pizzaOrders: result,
+            user : req.user // Send the email. This will help us only show the post made by a particular email
           })
         })
     });
@@ -32,9 +33,11 @@ module.exports = function(app, passport, db) {
     // Post request when user submits a budget
     app.post('/placeOrder', (req, res) => {
         console.log(req.body.pizza)
-      db.collection('orders').insertOne({Name: req.body.pizza[0], Crust: req.body.pizza[1], Size: req.body.pizza[2], Toppings: req.body.pizza[3], Complete: "false"}, (err, result) => {
+        // Passing Email: req.user.local.email so that the email of the logged in user can be saved to the collection. This will help us only show the post made by this email address
+      db.collection('orders').insertOne({Name: req.body.pizza[0], Crust: req.body.pizza[1], Size: req.body.pizza[2], Toppings: req.body.pizza[3], Complete: "false", Email: req.user.local.email}, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
+        console.log(req.user.local.email)
         res.redirect('/profile')
       })
     })
