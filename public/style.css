@@ -1,0 +1,44 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+
+}
+img{
+  height: 200px;
+}
+
+
+.orderName {
+  width: 20%;
+  margin: 2rem auto;
+}
+
+.orderDisplay{
+  margin-top: 3rem;
+
+}
+
+.card {
+  border: 1px solid grey;
+  float: left;
+  margin: 2rem auto;
+  margin-left: 2rem;
+  font-size: 2.5rem;
+  width: 30%;
+}
+
+#orderComplete {
+  color: green;
+}
+
+#orderPending {
+  color: red;
+}
+
+section {
+  margin-top: -4%;
+}
+
+#logo {
+  font-size: 5rem;
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+    <title>Pizza Shop</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section>
+    <div class="container text-center">
+
+      <h1 id="logo">🍕</h1>
+      <h1>Pizza Shop</h1>
+      <p>Place your order below</p>
+
+      <div></div>
+
+      <form action="placeOrder" method="POST" >
+
+        <input type="text" class="form-control orderName" name="pizza" placeholder="Name">
+
+        <select class="example" name="pizza">
+          <option selected>Select Crust</option>
+          <option value="Hand Tossed" name="pizza">Hand Tossed</option>
+          <option value="Handmade Pan" name="pizza">Handmade Pan</option>
+          <option value="Crunchy Thin Crust" name="pizza">Crunchy Thin Crust</option>
+          <option value="Brooklyn Style" name="pizza">Brooklyn Style</option>
+          <option value="Gluten Free Crust" name="pizza">Gluten Free Crust</option>
+  
+        </select>
+      
+        <select class="select" name="pizza">
+          <option selected>Select Size</option>
+          <option value="Small" name="pizza">Small (10")</option>
+          <option value="Medium" name="pizza">Medium (12")</option>
+          <option value="Large" name="pizza">Large (16")</option>
+        </select>
+      
+        <select class="select" name="pizza">
+          <option selected>Select Toppings</option>
+          <option value="Pepperoni" name="pizza">Pepperoni</option>
+          <option value="Ham" name="pizza">Ham</option>
+          <option value="Bacon" name="pizza">Bacon</option>
+        </select>
+  
+        <button type="submit" class="btn btn-primary">Submit Order</button>
+      </form>
+
+
+      <section class="orderDisplay">
+        <div class="container d-flex flex-row">
+
+          <% for(let i = 0; i < pizzaOrders.length; i++) {%>
+
+            <div class="card " >
+              <div class="card-body ">
+                <h5 class="card-title">Name: <%= pizzaOrders[i].Name %></h5>
+                <p class="card-text">Crust: <%= pizzaOrders[i].Crust %></p>
+                <p class="card-text">Size: <%= pizzaOrders[i].Size %></p>
+                <p class="card-text">Toppings: <%= pizzaOrders[i].Toppings %></p>
+                <span><i class="bi bi-trash"></i></span>
+                <span><i class="bi bi-check-circle"></i></span>
+
+                <% if (pizzaOrders[i].Complete === "true") { %>
+                  <p id="orderComplete"> Order Completed</p>
+                  <%} else { %>
+                  <p id="orderPending"> Order Pending </p>
+                  <% } %>
+
+              </div>
+            </div>
+        <% } %>
+
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+<script src="main.js"></script>
+
+</body>
+</html>
