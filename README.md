@@ -7,7 +7,7 @@
 
 **Tech used:** HTML, CSS, JavaScript, Node.js, Express, MongoDB, EJS, Bootstrap
 
-Fullstack applicaiton where users can login, add an order and wait for it to be completed. Once an order is submitted, it's saved on MongoDB. The chef has the option to mark an order as complete by clicking the checkmark and can also delete an order by clicking the trash can.  
+Fullstack application where users can log in, add an order, and wait for it to be completed. Once an order is submitted, it's saved on MongoDB. The chef has the option to mark an order as complete by clicking the checkmark and can also delete an order by clicking the trash can. 
 
 
 ## Installation
